@@ -811,9 +811,30 @@ plot_cnv <- function(infercnv_obj,
         split_groups_as_idx[to_replace] = idx
         idx = idx + 1
     }
+    get_group_color_palette1 <- function(num_colors) {
+        # base_palette <- RColorBrewer::brewer.pal(12, "Set3")
+        base_palette <- c(
+            "#2c2c54", "#474787", "#aaa69d", "#227093", "#218c74",
+            "#ff5252", "#ff793f", "#d1ccc0", "#ffb142", "#ffda79",
+            "#b33939", "#cd6133", "#84817a", "#cc8e35", "#ccae62",
+            "#E64B35", "#4DBBD5", "#00A087", "#3C5488", "#F39B7F",
+            "#8491B4", "#91D1C2", "#DC0000", "#7E6148", "#B09C85",
+            "#FFC312", "#C4E538", "#12CBC4", "#FDA7DF", "#ED4C67",
+            "#F79F1F", "#A3CB38", "#1289A7", "#D980FA", "#B53471",
+            "#EE5A24", "#009432", "#0652DD", "#9980FA", "#833471",
+            "#EA2027", "#006266", "#1B1464", "#5758BB", "#6F1E51",
+            "#40407a", "#706fd3", "#f7f1e3", "#34ace0", "#33d9b2"
+        )
+        if (num_colors <= length(base_palette)) {
+            return(base_palette[1:num_colors])
+        } else {
+            return(colorRampPalette(base_palette))
+        }
+    }
     split_groups_as_idx = as.integer(split_groups_as_idx)
     row_groupings <- get_group_color_palette()(length(table(split_groups_as_idx)))[split_groups_as_idx]
-    row_groupings <- cbind(row_groupings, get_group_color_palette()(length(table(hcl_obs_annotations_groups)))[hcl_obs_annotations_groups])
+    # row_groupings <- cbind(row_groupings, get_group_color_palette()(length(table(hcl_obs_annotations_groups)))[hcl_obs_annotations_groups])
+    row_groupings <- cbind(row_groupings,get_group_color_palette1(length(table(hcl_obs_annotations_groups)))[hcl_obs_annotations_groups])
     annotations_legend <- cbind(obs_annotations_names, get_group_color_palette()(length(table(hcl_obs_annotations_groups))))
 
     # Make a file of coloring and groupings
