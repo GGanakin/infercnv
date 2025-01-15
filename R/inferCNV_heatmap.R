@@ -835,8 +835,8 @@ plot_cnv <- function(infercnv_obj,
     row_groupings <- get_group_color_palette()(length(table(split_groups_as_idx)))[split_groups_as_idx]
     # row_groupings <- cbind(row_groupings, get_group_color_palette()(length(table(hcl_obs_annotations_groups)))[hcl_obs_annotations_groups])
     row_groupings <- cbind(row_groupings,get_group_color_palette1(length(table(hcl_obs_annotations_groups)))[hcl_obs_annotations_groups])
-    annotations_legend <- cbind(obs_annotations_names, get_group_color_palette()(length(table(hcl_obs_annotations_groups))))
-
+    # annotations_legend <- cbind(obs_annotations_names, get_group_color_palette()(length(table(hcl_obs_annotations_groups))))
+     annotations_legend <- cbind(obs_annotations_names, get_group_color_palette1(length(table(hcl_obs_annotations_groups))))
     # Make a file of coloring and groupings
     flog.info("plot_cnv_observation:Writing observation groupings/color.")
     groups_file_name <- file.path(file_base_name, sprintf("%s.observation_groupings.txt", output_filename_prefix))
