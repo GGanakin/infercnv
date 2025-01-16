@@ -189,7 +189,7 @@ plot_cnv <- function(infercnv_obj,
     contigs = infercnv_obj@gene_order[[C_CHR]]
     unique_contigs <- unique(contigs)
     n_contig <- length(unique_contigs)
-    ct.colors <- ()(n_contig)
+    ct.colors <- get_group_color_palette()(n_contig)
     names(ct.colors) <- unique_contigs
 
     # Select color palette
