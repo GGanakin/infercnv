@@ -189,7 +189,7 @@ plot_cnv <- function(infercnv_obj,
     contigs = infercnv_obj@gene_order[[C_CHR]]
     unique_contigs <- unique(contigs)
     n_contig <- length(unique_contigs)
-    ct.colors <- get_group_color_palette()(n_contig)
+    ct.colors <- ()(n_contig)
     names(ct.colors) <- unique_contigs
 
     # Select color palette
@@ -815,7 +815,7 @@ plot_cnv <- function(infercnv_obj,
         # base_palette <- RColorBrewer::brewer.pal(12, "Set3")
         base_palette <- c(
             "#2c2c54", "#474787", "#aaa69d", "#227093", "#218c74",
-            "#ff5252", "#ff793f", "#d1ccc0", "#ffb142", "#ffda79",
+            "#7E6148", "#d1ccc0", "#DC0000", "#ffb142", "#ffda79",
             "#b33939", "#cd6133", "#84817a", "#cc8e35", "#ccae62",
             "#E64B35", "#4DBBD5", "#00A087", "#3C5488", "#F39B7F",
             "#8491B4", "#91D1C2", "#DC0000", "#7E6148", "#B09C85",
